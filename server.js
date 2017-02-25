@@ -28,11 +28,11 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Import routes and give the server access to them.
 
-var friendsController = require("./app/data/friends.js");
+
 var apiController = require("./app/routing/apiRoutes.js");
 var htmlController = require("./app/routing/htmlRoutes.js");
 
-app.use("/", friendsController);
+
 app.use("/api", apiController);
 app.use("/html", htmlController);
 

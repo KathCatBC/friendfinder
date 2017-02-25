@@ -1,7 +1,18 @@
 
-var friends = require(friends)
+var express = require("express");
 
-app.get("/api/friends", function(req,res){
+var router = express.Router();
+
+// Import the model (cat.js) to use its database functions.
+// Create all our routes and set up logic within those routes where required.
+// router.get("/", function(req, res) {
+
+
+
+
+var friends = require('../data/friends')
+
+router.get("/api/friends", function(req,res){
 	res.json(friends)
 })
 
@@ -10,14 +21,11 @@ app.get("/api/friends", function(req,res){
 // A GET route with the url /api/friends. This will be used to display a JSON of all possible friends.
 // A POST routes /api/friends. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
 
-app.post("/api/friends", function(req, res) {
-  var surveyresults = req.body;
+router.post("/api/friends", function(req, res) {
 
-  console.log(surveyresults);
-
-  friends.push(surveyresults);
+  friends.push(req.body);
 
   // res.json(friends);
 });
 
-module.exports = apiRoutes;
+module.exports = router
