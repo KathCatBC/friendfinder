@@ -29,12 +29,29 @@
  
   </div>
 
-  <p>need a link to all friends</p>
-  <p>need a link to github</p>
+<!-- 
+<a href="/survey"><button type="button" class="btn btn-primary"><span class="fa fa-search"></span>   Survey</button></a> -->
+
+<a href="https://github.com/KathCatBC/friendfinder" class="btn btn-primary btn-xs" id="btn-github">GitHub</a><br>
+<a href="#" class="btn btn-primary btn-xs" id="btn-friends">Friends</a>
+
+  <!-- <a href="/friends">friends</a> <br> -->
+  <!-- <a href="https://github.com/KathCatBC/friendfinder">github</a> -->
 
   <script type="text/javascript">
+
+$("#btn-friends").on("click", function() {
+
+   $.ajax({
+      type: "GET",
+      url: "/api/friends",
+  
+      // success: function(data) {
+      //  console.log("success")
+      // }
+
+   });
+ });
  
   </script>
-
-</body>
 </html>

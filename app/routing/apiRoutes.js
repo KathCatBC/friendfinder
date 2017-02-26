@@ -3,9 +3,9 @@ var express = require("express");
 
 var router = express.Router();
 
-// var friends = require('../data/friends')
+var friends = require('../data/friends')
 
-
+// 
 console.log("apirouter")
 
 router.get("/friends", function(req,res){
@@ -22,10 +22,29 @@ router.post("/friends", function(req, res) {
 
 console.log("api/friends post")
 
-	console.log(req);
-	console.log(res);
+	console.log(req.body);
+	
 
-	console.log("api/friends post")
+	var addedFriend = req.body
+var newScores = addedFriend.scores
+
+
+console.log(addedFriend.name)
+console.log(newScores)
+
+// var bestMatch = "friends[0]"
+// var bestScore = 1
+// for (i=0; friends.length-1; i++) {
+// 	match = friends[i];
+// 	currentScore = 0
+// 	for (j=0; 9; j++)
+// 		currentScore += abs(newScores[j] - match[j])
+// 	}
+// 	if (currentScore > bestScore) {
+// 		bestScore = currentScore;
+// 		bestMatch = friends[i];
+// 	}
+// }; 
 
 	console.log("put logic here not in friends.js")
 
