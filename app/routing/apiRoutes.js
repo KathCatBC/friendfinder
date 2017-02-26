@@ -3,10 +3,10 @@ var express = require("express");
 
 var router = express.Router();
 
-var friends = require('../data/friends')
+var friend = require('../data/friends.js')
 
-// 
-console.log("apirouter")
+
+console.log("api routes loaded")
 
 router.get("/friends", function(req,res){
 	console.log("api/friends get")
@@ -21,36 +21,40 @@ router.get("/friends", function(req,res){
 router.post("/friends", function(req, res) {
 
 console.log("api/friends post")
-
+	// res.send(req.body)
 	console.log(req.body);
 	
-
 	var addedFriend = req.body
-var newScores = addedFriend.scores
+	var newScores = addedFriend.scores
 
+	console.log("added Friend scores = " + addedFriend.scores)
 
-console.log(addedFriend.name)
-console.log(newScores)
+	
 
-// var bestMatch = "friends[0]"
-// var bestScore = 1
-// for (i=0; friends.length-1; i++) {
-// 	match = friends[i];
-// 	currentScore = 0
-// 	for (j=0; 9; j++)
-// 		currentScore += abs(newScores[j] - match[j])
-// 	}
-// 	if (currentScore > bestScore) {
-// 		bestScore = currentScore;
-// 		bestMatch = friends[i];
-// 	}
-// }; 
+var bestMatch = friends[0];
+var bestScore = 100;
+for (i=0; i<=friends.length-1; i++) {
+	console.log("i = " + i);
+	match = friends[i];
+	currentScore = 0;
+	for (j=0; j<=9; j++){
+		console.log("J = "+ parseInt(newScores[j]) + "  " + parseInt(match.scores[j])) 
+		console.log("J subtract & abs = "+ Math.abs(parseInt(newScores[j]) - parseInt(match.scores[j]))); 
+		currentScore = ParseInt(currentScore) + Math.abs(parseInt(newScores[j]) - parseInt(match[j]));
+		console.log(currentScore);
+	}
+	console.log("currentScore = "+ currentScore)
+	if (currentScore < bestScore) {
+		bestScore = currentScore;
+		bestMatch = friends[i];
+		console.log(bestMatch.name)
+	}
+}
 
-	console.log("put logic here not in friends.js")
+// pop up mod with match
+console.log("best match = " + bestMatch.name)
 
-  // friends.push(req.body);
-
-  // res.json(friends);
+  friends.push(req.body);
 });
 
 module.exports = router

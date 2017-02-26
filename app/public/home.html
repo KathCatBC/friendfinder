@@ -45,13 +45,26 @@ $("#btn-friends").on("click", function() {
    $.ajax({
       type: "GET",
       url: "/api/friends",
-  
+      success: function(data){
+          for (var i=0; i<data.length; i++){
+            var str = "";
+            var div = $('<div>');
+            str += data[i].name;
+
+            div.text(str);
+
+            $('body').prepend(div);
+          }
+      }
+  });
+
+
       // success: function(data) {
       //  console.log("success")
       // }
 
    });
- });
+ // });
  
   </script>
 </html>
