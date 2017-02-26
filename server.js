@@ -35,6 +35,7 @@ var htmlController = require("./app/routing/htmlRoutes.js");
 
 app.use("/api", apiController);
 app.use("/html", htmlController);
+app.use("/", htmlController);
 
 
 

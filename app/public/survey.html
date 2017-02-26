@@ -169,29 +169,39 @@
    var surveyResults = {};
 
   $("#submit-btn").on("click", function() {
+
+    event.preventDefault();
       
       surveyResults={
       name: $("#inputName").val().trim(),
       photo: $("#inputPhoto").val().trim(),
       scores: [$("#selectOne").val(),$("#selectTwo").val(),$("#selectThree").val(),$("#selectFour").val(),$("#selectFive").val(),$("#selectSix").val(),$("#selectSeven").val(),$("#selectEight").val(),$("#selectNine").val(),$("#selectTen").val()]
     }
-
-  
-
     
+    console.log(JSON.stringify(surveyResults))
     $.ajax({
       type: "POST",
       url: "/api/friends",
       data: surveyResults,
-      success: function(data) {
-       console.log("success")
-      }
+      // success: function(data) {
+      //  console.log("success")
+      // }
 
-    })
+   }).done(function(result) {
+
+   }).fail(function(err) {    
+
+    console.log(url)
+    console.log(err) 
+
+    throw err
+
 
     });
     
- 
+ });
+
+
   </script>
 
 </body>
