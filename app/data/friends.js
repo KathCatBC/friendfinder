@@ -12,28 +12,3 @@ scores: [2,2,2,2,2,2,2,2,2,2]},
 photo: "http://www.becauseimacat.com/wp-content/uploads/2016/12/Kitty-Cuteness-Overload-marshmellow-kitten-big.jpg",
 scores: [4,4,4,4,4,4,4,4,4,4]}
 ]
-
-// console.log("friends.js loaded")
-
-// function addFriend(newFriend){
-// 	// console.log("friends.js")
-// 	// console.log("new friend  " + newFriend)
-// 	// console.log(newFriend.name)
-// 	// console.log(newFriend.scores)
-
-// 	friends.push(newFriend)
-// 	// console.log("pushed?")
-
-// 	// console.log(friends.length);
-
-// 	// for (i=0; friends.length-1; i++){
-// 	// 	console.log("from friends array " + friends[i].name)
-
-// }
-
-
-
-
-
-
-// module.exports = friends;

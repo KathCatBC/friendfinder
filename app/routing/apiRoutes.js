@@ -1,27 +1,22 @@
 
 var express = require("express");
-
+var bodyParser = require("body-parser");
 var router = express.Router();
 
 var friend = require('../data/friends.js')
 
 
-console.log("api routes loaded")
+console.log("api routes loaded");
 
 router.get("/friends", function(req,res){
-	console.log("api/friends get")
-	res.json(friends)
-})
+	res.json(friends);
+});
 
-// Your apiRoutes.js file should contain two routes:
 
-// A GET route with the url /api/friends. This will be used to display a JSON of all possible friends.
-// A POST routes /api/friends. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
-// router.post("/api/friends", function(req, res) {
 router.post("/friends", function(req, res) {
 
-console.log("api/friends post")
-	// res.send(req.body)
+
+	
 	console.log(req.body);
 	
 	var addedFriend = req.body
@@ -29,18 +24,17 @@ console.log("api/friends post")
 
 	console.log("added Friend scores = " + addedFriend.scores)
 
-	
 
 var bestMatch = friends[0];
-var bestScore = 100;
+var bestScore = 100;  // set the bar higher than the best possible score
 for (i=0; i<=friends.length-1; i++) {
 	console.log("i = " + i);
 	match = friends[i];
 	currentScore = 0;
 	for (j=0; j<=9; j++){
-		console.log("J = "+ parseInt(newScores[j]) + "  " + parseInt(match.scores[j])) 
+		console.log("J = "+ newScores[j] + "  " + match.scores[j]);
 		console.log("J subtract & abs = "+ Math.abs(parseInt(newScores[j]) - parseInt(match.scores[j]))); 
-		currentScore = ParseInt(currentScore) + Math.abs(parseInt(newScores[j]) - parseInt(match[j]));
+		currentScore = Number(currentScore) + Math.abs(Number(newScores[j]) - Number(match[j]));
 		console.log(currentScore);
 	}
 	console.log("currentScore = "+ currentScore)
