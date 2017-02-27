@@ -22,17 +22,15 @@
       <h3>Find a friend</h3>
 
        <a href="/survey"><button type="button" class="btn btn-primary"><span class="fa fa-search"></span>   Survey</button></a>
+       <br><br><br>
 
     
     </div>
+    <a href="https://github.com/KathCatBC/friendfinder" class="btn btn-primary btn-xs" id="btn-github">GitHub</a>
+    <a href="#" class="btn btn-primary btn-xs" id="btn-friends">Friends</a>
+    <a href="#" class="btn btn-primary btn-xs" id="btn-hide-friends">Hide Friends</a>
  
   </div>
-
-
-
-  <a href="https://github.com/KathCatBC/friendfinder" class="btn btn-primary btn-xs" id="btn-github">GitHub</a><br>
-  <a href="#" class="btn btn-primary btn-xs" id="btn-friends">Friends</a>
-  <a href="#" class="btn btn-primary btn-xs" id="btn-hide-friends">Hide Friends</a>
   
   <div class="panel panel-default">
     <div class="panel-body" id="friends-panel">
@@ -43,29 +41,24 @@
 
   <script type="text/javascript">
 
+  $("#friends-panel").hide();
+  $("#btn-hide-friends").hide();
 
-$("#friends-panel").hide();
-$("#btn-hide-friends").hide();
-
-
-$("#btn-friends").on("click", function() {
-
-    console.log("friend button clicked")
-
-   $.ajax({
+  $("#btn-friends").on("click", function() {
+console.log("friend clicked")
+    $.ajax({
       type: "GET",
       url: "/api/friends",
       }).done(function(result) {
 
         for (var i=0; i<result.length; i++){
-          var str = "";
-          var div = $('<div>');
-          str += result[i].name + ", " + result[i].photo + ", " + result[i].scores;
+            var str = "";
+            var div = $('<div>');
+            str += result[i].name + ", " + result[i].photo + ", " + result[i].scores;
 
-          div.text(str);
+            div.text(str);
 
-          $('#friends-panel').append(div);
-
+            $('#friends-panel').append(div);
         }
         
         $("#friends-panel").show();
@@ -75,15 +68,14 @@ $("#btn-friends").on("click", function() {
       
     });
 
+  });
 
-});
-$("#btn-hide-friends").on("click", function() {
+  $("#btn-hide-friends").on("click", function() {
+    $("#friends-panel").hide();
+    $("#btn-friends").show();
+    $("#btn-hide-friends").hide();
 
-  $("#friends-panel").hide();
-  $("#btn-friends").show();
-  $("#btn-hide-friends").hide();
-
-})
+  })
  
   </script>
 </html>
