@@ -188,7 +188,7 @@
   $("#submit-btn").on("click", function() {
 
     if ($("#inputName").val().trim() == "" || $("#inputPhoto").val().trim()== "") {
-      console.log("error")
+  
       $(".modal-title").text("Error");
       $(".modal-body").text("Name and Photo cannot be blank");
       $("#modalPal").show();
@@ -206,10 +206,16 @@
         url: "/api/friends",
         data: surveyResults,
         success: function(data) {
-          console.log(data)
-          $(".modal-title").text("Meet Your New Pal");
-          $(".modal-body").text("Name:  " + data.name + ", " + data.photo);
-          $("#modalPal").show();
+            
+            var pic = $("<img>")
+            pic.attr("src", data.photo);
+            pic.attr("height", "200px");
+            pic.attr("width", "200px");
+            $(".modal-title").text("Meet Your New Pal");
+            $(".modal-body").text("Name:  " + data.name);
+            $(".modal-body").append("<br>");
+            $(".modal-body").append(pic);
+            $("#modalPal").show();
         }
      
       });

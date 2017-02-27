@@ -45,7 +45,8 @@
   $("#btn-hide-friends").hide();
 
   $("#btn-friends").on("click", function() {
-console.log("friend clicked")
+
+
     $.ajax({
       type: "GET",
       url: "/api/friends",
@@ -70,7 +71,7 @@ console.log("friend clicked")
 
   });
 
-  $("#btn-hide-friends").on("click", function() {
+    $("#btn-hide-friends").on("click", function() {
     $("#friends-panel").hide();
     $("#btn-friends").show();
     $("#btn-hide-friends").hide();
