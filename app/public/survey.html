@@ -178,6 +178,7 @@
 
 
 <script type="text/javascript">
+
   $(".close-edit").on("click", function() {
       $("#modalPal").hide()
   })
@@ -206,8 +207,9 @@
         data: surveyResults,
         success: function(data) {
           console.log(data)
-            // $("#modal-pal-results").text(data )
-           $("#ModalPal").show(); 
+          $(".modal-title").text("Meet Your New Pal");
+          $(".modal-body").text("Name:  " + data.name + ", " + data.photo);
+          $("#modalPal").show();
         }
      
       });
