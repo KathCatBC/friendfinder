@@ -34,8 +34,8 @@ for (i=0; i<=friends.length-1; i++) {
 	for (j=0; j<=9; j++){
 		console.log("J = "+ newScores[j] + "  " + match.scores[j]);
 		console.log("J subtract & abs = "+ Math.abs(parseInt(newScores[j]) - parseInt(match.scores[j]))); 
-		currentScore = Number(currentScore) + Math.abs(Number(newScores[j]) - Number(match[j]));
-		console.log(currentScore);
+		currentScore = parseInt(currentScore) + Math.abs(parseInt(newScores[j]) - parseInt(match.scores[j]));
+		console.log("currentScore = " + parseInt(currentScore));
 	}
 	console.log("currentScore = "+ currentScore)
 	if (currentScore < bestScore) {
