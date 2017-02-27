@@ -190,7 +190,11 @@
 <script type="text/javascript">
 
   $(".close-edit").on("click", function() {
-      $("#modalPal").hide()
+     if ($(".modal-title").text() == "Meet Your New Pal") {
+          window.location.href = "/";    
+      } else {
+          $("#modalPal").hide()
+     }
   })
   
    var surveyResults = {};
@@ -226,8 +230,10 @@
             $(".modal-body").append("<br>");
             $(".modal-body").append(pic);
             $("#modalPal").show();
+
         }
-     
+
+
       });
    }
     
