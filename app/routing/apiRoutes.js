@@ -47,6 +47,7 @@ for (i=0; i<=friends.length-1; i++) {
 
 // pop up mod with match
 console.log("best match = " + bestMatch.name)
+	res.json(bestMatch);
 
   friends.push(req.body);
 });
